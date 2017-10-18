@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Practics_1
 {
-    enum FigureType
+    enum Emplacement
     {
-        Square,
-        Disc,
-        Triangle,
-        Ellips,
-        Rectangle
+        Vertical,
+        Horizontal,
+        InCorner
     }
 }

@@ -10,16 +10,9 @@ namespace Practics_1
     {
         private double radius;
 
-        public Disc(double Radius)
+        public Disc(double radius)
         {
-            if (Radius <= 0)
-            {
-                throw new ArgumentException("Value must be positive!");
-            }
-            else
-            {
-                radius = Radius;
-            }
+            Radius = radius;
         }
 
         public double Radius
@@ -44,6 +37,16 @@ namespace Practics_1
         public override double GetArea()
         {
             return Math.PI * radius * radius;
+        }
+
+        public override double GetShapeHeight()
+        {
+            return radius * 2;
+        }
+
+        public override double GetShapeWidth()
+        {
+            return radius * 2;
         }
     }
 }

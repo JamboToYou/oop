@@ -10,16 +10,9 @@ namespace Practics_1
     {
         private double side;
 
-        public Square(double Side)
+        public Square(double side)
         {
-            if(Side <= 0)
-            {
-                throw new ArgumentException("Value must be positive!");
-            }
-            else
-            {
-                side = Side;
-            }
+            Side = side;
         }
 
         public double Side
@@ -44,6 +37,16 @@ namespace Practics_1
         public override double GetArea()
         {
             return side * side;
+        }
+
+        public override double GetShapeHeight()
+        {
+            return side;
+        }
+
+        public override double GetShapeWidth()
+        {
+            return side;
         }
     }
 }

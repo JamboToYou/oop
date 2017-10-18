@@ -11,17 +11,10 @@ namespace Practics_1
         private double width;
         private double height;
 
-        public Rectangle(double Width, double Height)
+        public Rectangle(double width, double weight)
         {
-            if (Width <= 0 || Height <= 0)
-            {
-                throw new ArgumentException("Value must be positive!");
-            }
-            else
-            {
-                width = Width;
-                height = Height;
-            }
+            Width = width;
+            Height = height;
         }
 
         public double Width
@@ -64,6 +57,16 @@ namespace Practics_1
         public override double GetArea()
         {
             return width * height;
+        }
+
+        public override double GetShapeHeight()
+        {
+            return Height;
+        }
+
+        public override double GetShapeWidth()
+        {
+            return Width;
         }
     }
 }

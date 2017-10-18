@@ -9,5 +9,7 @@ namespace Practics_1
     abstract class GenShape
     {
         public abstract double GetArea();
+        public abstract double GetShapeWidth();
+        public abstract double GetShapeHeight();
     }
 }

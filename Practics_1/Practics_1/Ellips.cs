@@ -10,6 +10,26 @@ namespace Practics_1
     {
         private double bigRadius;
         private double smallRadius;
+        public Emplacement empl;
+
+        public Emplacement Empl
+        {
+            get
+            {
+                return empl;
+            }
+            set
+            {
+                if (value.GetType() == empl.GetType())
+                {
+                    empl = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Invalid type");
+                }
+            }
+        }
 
         public double BigRadius {
             get
@@ -48,23 +68,47 @@ namespace Practics_1
             }
         }
 
-        public Ellips(double BigRadius, double SmallRadius)
+        public Ellips(double bigRadius, double smallRadius, Emplacement empl)
         {
-            if (BigRadius <= 0 || SmallRadius <= 0)
-            {
-                throw new ArgumentException("Values must be positive!");
-            }
-            else
-            {
-                bigRadius = BigRadius;
-                smallRadius = SmallRadius;
-            }
+            BigRadius = bigRadius;
+            SmallRadius = smallRadius;
+            Empl = empl;
             
         }
 
         public override double GetArea()
         {
             return Math.PI * bigRadius * smallRadius;
+        }
+
+        public override double GetShapeHeight()
+        {
+            switch (empl)
+            {
+                case Emplacement.Horizontal:
+                    return smallRadius * 2;
+
+                case Emplacement.Vertical:
+                    return bigRadius * 2;
+
+                default:
+                    return smallRadius * 2;
+            }
+        }
+
+        public override double GetShapeWidth()
+        {
+            switch (empl)
+            {
+                case Emplacement.Vertical:
+                    return smallRadius * 2;
+
+                case Emplacement.Horizontal:
+                    return bigRadius * 2;
+
+                default:
+                    return bigRadius * 2;
+            }
         }
     }
 }

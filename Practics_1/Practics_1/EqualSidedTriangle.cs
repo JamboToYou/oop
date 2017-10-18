@@ -6,19 +6,33 @@ using System.Threading.Tasks;
 
 namespace Practics_1
 {
-    class IsoscRectTriangle : GenShape
+    class IsoscelesRectangularTriangle : GenShape
     {
         private double side;
+        public Emplacement empl;
 
-        public IsoscRectTriangle(double Side)
+        public IsoscelesRectangularTriangle(double side, Emplacement empl)
         {
-            if (Side <= 0)
+            Side = side;
+            Empl = empl;
+        }
+
+        public Emplacement Empl
+        {
+            get
             {
-                throw new ArgumentException("Value must be positive!");
+                return empl;
             }
-            else
+            set
             {
-                side = Side;
+                if (value.GetType() == empl.GetType())
+                {
+                    empl = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Invalid type");
+                }
             }
         }
 
@@ -44,6 +58,36 @@ namespace Practics_1
         public override double GetArea()
         {
             return side * side / 2;
+        }
+
+        public override double GetShapeHeight()
+        {
+            switch (empl)
+            {
+                case Emplacement.Vertical:
+                    return side * Math.Sqrt(2);
+                case Emplacement.Horizontal:
+                    return side / Math.Sqrt(2);
+                case Emplacement.InCorner:
+                    return side;
+                default:
+                    throw new Exception("Invalid emplacement");
+            }
+        }
+
+        public override double GetShapeWidth()
+        {
+            switch (empl)
+            {
+                case Emplacement.Horizontal:
+                    return side * Math.Sqrt(2);
+                case Emplacement.Vertical:
+                    return side / Math.Sqrt(2);
+                case Emplacement.InCorner:
+                    return side;
+                default:
+                    throw new Exception("Invalid emplacement");
+            }
         }
     }
 }
