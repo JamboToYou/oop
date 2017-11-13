@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DE8661AD-13A2-41D2-AB8F-613BCEF05C8D}</ProjectGuid>
+    <ProjectGuid>{BE823774-FD92-4BA4-BB5E-C18ABA83A547}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Practics_3</RootNamespace>
-    <AssemblyName>Practics_3</AssemblyName>
+    <RootNamespace>Practics_4</RootNamespace>
+    <AssemblyName>Practics_4</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Human.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

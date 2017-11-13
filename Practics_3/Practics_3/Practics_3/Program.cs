@@ -10,6 +10,7 @@ namespace Practics_3
     {
         static void Main(string[] args)
         {
+            ICollection
         }
     }
 }
