@@ -27,6 +27,7 @@ namespace Practics_3
             if (enumerator.Current == null)
             {
                 enumerator.Reset();
+                enumerator.MoveNext();
             }
             return enumerator.Current;
         }
