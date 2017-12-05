@@ -1,0 +1,7 @@
+C:\Users\Vlad\source\repos\Practics_5\Practics_5\obj\Debug\Practics_5.csprojResolveAssemblyReference.cache
+C:\Users\Vlad\source\repos\Practics_5\Practics_5\obj\Debug\Practics_5.csproj.CoreCompileInputs.cache
+C:\Users\Vlad\source\repos\Practics_5\Practics_5\bin\Debug\Practics_5.exe.config
+C:\Users\Vlad\source\repos\Practics_5\Practics_5\bin\Debug\Practics_5.exe
+C:\Users\Vlad\source\repos\Practics_5\Practics_5\bin\Debug\Practics_5.pdb
+C:\Users\Vlad\source\repos\Practics_5\Practics_5\obj\Debug\Practics_5.exe
+C:\Users\Vlad\source\repos\Practics_5\Practics_5\obj\Debug\Practics_5.pdb
