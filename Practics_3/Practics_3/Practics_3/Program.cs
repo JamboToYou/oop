@@ -29,6 +29,10 @@ namespace Practics_3
                 node = node.Next;
             }
 
+
+            Console.WriteLine();
+            Console.ReadKey();
+
             node = list.First;
 
             for (int i = 0; i < cnt; i++)
