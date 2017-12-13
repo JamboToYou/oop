@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contacts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://msiter.ru Contacts.xsd">
+  <contact Id="0">
+    <FirstName>Vlad</FirstName>
+    <SecondName>Lee</SecondName>
+    <Number>j89011234567</Number>
+    <EMail>vlad.lee@mail.ru</EMail>
+  </contact>
+  <contact Id="1">
+    <FirstName>Andrey</FirstName>
+    <SecondName>Tyu</SecondName>
+    <Number>89020458673</Number>
+    <EMail>jambotoyou@gmail.com</EMail>
+  </contact>
+  <contact Id="2">
+    <FirstName>ndre</FirstName>
+    <SecondName>g</SecondName>
+    <Number>345532345</Number>
+    <EMail />
+  </contact>
+  <contact Id="3">
+    <FirstName>ert</FirstName>
+    <SecondName>dr</SecondName>
+    <Number>34523</Number>
+    <EMail />
+  </contact>
+  <contact Id="5">
+    <FirstName>Daniil</FirstName>
+    <SecondName>Khudorozkhov</SecondName>
+    <Number>43563653</Number>
+    <EMail>dfghdfgh</EMail>
+  </contact>
+</contacts>

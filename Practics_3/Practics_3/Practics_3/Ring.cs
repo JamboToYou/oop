@@ -34,13 +34,12 @@ namespace Practics_3
 
         public void removeElement(T element)
         {
-            element.getId();
             list.Remove(element);
         }
 
-        public T current()
+        public T current
         {
-            return enumerator.Current;
+            get => enumerator.Current;
         }
 
         public void reset()

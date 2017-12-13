@@ -10,26 +10,37 @@ namespace Practics_3
     {
         static void Main(string[] args)
         {
-            Ring<Human> humanRing = new Ring<Human>();
-            //humanRing.reset();
-            int countOfPeople;
+            LinkedList<Human> list = new LinkedList<Human>();
+            LinkedListNode<Human> node;
 
-            for (int i = 0; i < 5; i++)
+            Console.WriteLine("Enter the count of people :");
+            if (!int.TryParse(Console.ReadLine(), out int cnt)) throw new ArgumentException("Positive decimal number required");
+
+            for (int i = 0; i < cnt; i++)
             {
-                humanRing.add(new Human(i));
+                list.AddLast(new Human(i));
             }
 
-            humanRing.addEnum();
-            humanRing.moveNext();
-            humanRing.moveNext();
+            node = list.First;
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < cnt; i++)
             {
-                humanRing.moveNext();
-                Console.WriteLine(humanRing.current());
+                Console.WriteLine(node.Value.getId());
+                node = node.Next;
             }
+
+            node = list.First;
+
+            for (int i = 0; i < cnt; i++)
+            {
+                node = node.Next ?? list.First;
+
+                Console.WriteLine(node.Value.getId());
+
+                node = node.Next ?? list.First;
+            }
+
             Console.ReadKey();
-
         }
     }
 }
