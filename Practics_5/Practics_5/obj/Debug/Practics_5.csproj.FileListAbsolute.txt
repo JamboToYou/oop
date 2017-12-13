@@ -5,3 +5,19 @@ C:\Users\Vlad\source\repos\Practics_5\Practics_5\bin\Debug\Practics_5.exe
 C:\Users\Vlad\source\repos\Practics_5\Practics_5\bin\Debug\Practics_5.pdb
 C:\Users\Vlad\source\repos\Practics_5\Practics_5\obj\Debug\Practics_5.exe
 C:\Users\Vlad\source\repos\Practics_5\Practics_5\obj\Debug\Practics_5.pdb
+C:\Users\тю_аэ\Documents\Visual Studio 2017\Practics_5\Practics_5\bin\Debug\Practics_5.exe.config
+C:\Users\тю_аэ\Documents\Visual Studio 2017\Practics_5\Practics_5\bin\Debug\Practics_5.exe
+C:\Users\тю_аэ\Documents\Visual Studio 2017\Practics_5\Practics_5\bin\Debug\Practics_5.pdb
+C:\Users\тю_аэ\Documents\Visual Studio 2017\Practics_5\Practics_5\obj\Debug\Practics_5.csprojResolveAssemblyReference.cache
+C:\Users\тю_аэ\Documents\Visual Studio 2017\Practics_5\Practics_5\obj\Debug\Practics_5.csproj.CoreCompileInputs.cache
+C:\Users\тю_аэ\Documents\Visual Studio 2017\Practics_5\Practics_5\obj\Debug\Practics_5.exe
+C:\Users\тю_аэ\Documents\Visual Studio 2017\Practics_5\Practics_5\obj\Debug\Practics_5.pdb
+C:\Users\тю_аэ\Documents\Visual Studio 2017\Practics_5\Practics_5\bin\Debug\Contacts.xml
+D:\edu\prog\C#\oop\Practics_5\Practics_5\bin\Debug\Contacts.xml
+D:\edu\prog\C#\oop\Practics_5\Practics_5\bin\Debug\Practics_5.exe.config
+D:\edu\prog\C#\oop\Practics_5\Practics_5\bin\Debug\Practics_5.exe
+D:\edu\prog\C#\oop\Practics_5\Practics_5\bin\Debug\Practics_5.pdb
+D:\edu\prog\C#\oop\Practics_5\Practics_5\obj\Debug\Practics_5.csprojResolveAssemblyReference.cache
+D:\edu\prog\C#\oop\Practics_5\Practics_5\obj\Debug\Practics_5.csproj.CoreCompileInputs.cache
+D:\edu\prog\C#\oop\Practics_5\Practics_5\obj\Debug\Practics_5.exe
+D:\edu\prog\C#\oop\Practics_5\Practics_5\obj\Debug\Practics_5.pdb

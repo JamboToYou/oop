@@ -13,11 +13,10 @@ namespace Practics_5
         private static string FileName;
         private static int lastId;
 
-        public ContactWorker(string fileName)
+        public ContactWorker()
         {
             int Id = -1;
-            xdoc = XDocument.Load(fileName);
-            FileName = fileName;
+            LoadContactsFile("Contacts.xml");
 
             foreach (XElement xContact in xdoc.Root.Elements())
             {
@@ -52,28 +51,34 @@ namespace Practics_5
         {
             xdoc.Root.Add(new XElement("contact",
                                         new XAttribute("Id", ++lastId),
-                                        new XElement("FirstName", contact.GetFirstName()),
-                                        new XElement("SecondName", contact.GetSecondName()),
-                                        new XElement("Number", contact.GetNumber()),
-                                        new XElement("EMail", contact.GetEMail())));
+                                        new XElement("FirstName", contact.FirstName1),
+                                        new XElement("SecondName", contact.SecondName1),
+                                        new XElement("Number", contact.Number1),
+                                        new XElement("EMail", contact.EMail1)));
             xdoc.Save(FileName);
         }
         
 
-        public void RemoveContactById(int Id)
+        public bool RemoveContactById(string Id)
         {
+            bool result = false;
+
+            if (!int.TryParse(Id, out int ID)) return result;
+
             foreach (XElement xContact in xdoc.Root.Elements())
             {
-                if (int.Parse(xContact.Attribute("Id").Value) == Id)
+                if (int.Parse(xContact.Attribute("Id").Value) == ID)
                 {
                     xContact.Remove();
+                    result = true;
                 }
             }
-
             xdoc.Save(FileName);
+
+            return result;
         }
 
-        public LinkedList<Contact> FindByTagName(string tagName, string content)
+        public LinkedList<Contact> FindContactByTagName(string tagName, string content)
         {
             if (tagName == null || content == null) return null;
             LinkedList<Contact> list = new LinkedList<Contact>();
@@ -102,9 +107,34 @@ namespace Practics_5
             return null;
         }
 
-        public int GetLastId()
+        public LinkedList<Contact> FindContactByContent(string content)
         {
-            return lastId;
+            LinkedList<Contact> list = new LinkedList<Contact>();
+
+            foreach (XElement xContact in xdoc.Root.Elements())
+            {
+                foreach (XElement xContentUnit in xContact.Elements())
+                {
+                    if (xContentUnit.Value.Contains(content))
+                    {
+                        list.AddLast(GetContact(xContact));
+                        break;
+                    }
+                }
+            }
+            return list;
+        }
+
+        public void SaveContactsTo(string directoryWithFileName)
+        {
+            xdoc.Save(directoryWithFileName);
+            LoadContactsFile(directoryWithFileName);
+        }
+
+        private void LoadContactsFile(string directoryWithFileName)
+        {
+            xdoc = XDocument.Load(directoryWithFileName);
+            FileName = directoryWithFileName;
         }
     }
 }

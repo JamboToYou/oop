@@ -21,8 +21,10 @@ namespace Practics_5
                 "1. Show contacts" + Environment.NewLine +
                 "2. Add contact" + Environment.NewLine +
                 "3. Delete contact" + Environment.NewLine +
-                "4. Search contact" + Environment.NewLine + 
-                "5. Exit");
+                "4. Find contact by content in several tag" + Environment.NewLine +
+                "5. Find contact by content" + Environment.NewLine +
+                "6. Save to file" + Environment.NewLine +
+                "7. Exit");
         }
 
         internal void ShowContacts()
@@ -41,59 +43,52 @@ namespace Practics_5
         internal void AddContact()
         {
             Contact contact;
-            string Number = "t";
+            string Number;
 
-            ParseValue("first name", out string FirstName);
+            InputValue("first name", out string FirstName);
 
-            ParseValue("second name", out string SecondName);
+            InputValue("second name", out string SecondName);
 
-            while(!int.TryParse(Number, out int buf))
+            do
             {
-                ParseValue("number", out Number);
-            }
+                InputValue("number", out Number);
+            } while (!int.TryParse(Number, out int buf));
 
-            ParseValue("email", out string EMail);
+            InputValue("email", out string EMail);
 
-            contact = new Contact(0,
-                                FirstName,
-                                SecondName,
-                                Number,
-                                EMail);
+            contact = new Contact(FirstName,
+                                  SecondName,
+                                  Number,
+                                  EMail);
 
             contactWorker.AddContact(contact);
         }
 
-        private static void ParseValue(string nameOfValue, out string Variable)
+        private static void InputValue(string nameOfValue, out string Variable)
         {
             Console.Write("Enter the {0} : ", nameOfValue);
             Variable = Console.ReadLine();
         }
 
-        internal void DeleteContact()
+        internal bool DeleteContact()
         {
-            Console.WriteLine("Enter the ID of contact to remove :");
             this.ShowContacts();
 
-            if (int.TryParse(Console.ReadLine(), out int ID))
-            {
-                if (ID < 0 || ID > contactWorker.GetLastId())
-                {
-                    Console.WriteLine("Wrong ID!");
-                    DeleteContact();
-                }
-                else
-                {
-                    contactWorker.RemoveContactById(ID);
-                }
-            }
-            else
+            Console.WriteLine("Enter the ID of contact to remove or press enter to cancel : ");
+
+            string buf = Console.ReadLine();
+            if (buf == "") return true;
+
+            if (!contactWorker.RemoveContactById(buf))
             {
                 Console.WriteLine("Wrong type of ID!");
-                DeleteContact();
+                return false;
             }
+            
+            return true;
         }
 
-        internal void SearchContact()
+        internal bool FindContactByTagName()
         {
             string temp;
             string option;
@@ -102,36 +97,53 @@ namespace Practics_5
                                 "1. First name" + Environment.NewLine +
                                 "2. Second name" + Environment.NewLine +
                                 "3. Number" + Environment.NewLine +
-                                "4. EMail");
+                                "4. EMail" + Environment.NewLine +
+                                "5. Cancel");
 
             option = Console.ReadLine();
+            if (option == "5") return true;
+
+            Dictionary<string, string> vals = new Dictionary<string, string>
+            {
+                {"1", "FirstName"},
+                {"2", "SecondName"},
+                {"3", "Number"},
+                {"4", "EMail"}
+            };
+
+            if (!vals.ContainsKey(option))
+            {
+                Console.WriteLine("Wrong option");
+                return false;
+            }
 
             Console.WriteLine("Search : ");
             temp = Console.ReadLine();
 
-            switch (option)
-            {
-                case "1":
-                    ShowContactsList(contactWorker.FindByTagName("FirstName", temp));
-                    break;
+            LinkedList<Contact> contactsList = contactWorker.FindContactByTagName(vals[option], temp);
 
-                case "2":
-                    ShowContactsList(contactWorker.FindByTagName("SecondName", temp));
-                    break;
+            ShowContactsList(contactsList);
+            return true;
+        }
 
-                case "3":
-                    ShowContactsList(contactWorker.FindByTagName("Number", temp));
-                    break;
+        internal void FindContactByContent()
+        {
+            string temp;
+            LinkedList<Contact> contactsList;
 
-                case "4":
-                    ShowContactsList(contactWorker.FindByTagName("EMail", temp));
-                    break;
+            Console.WriteLine("Search : ");
+            temp = Console.ReadLine();
 
-                default:
-                    Console.WriteLine("Illegal option");
-                    SearchContact();
-                    break;
-            }
+
+            contactsList = contactWorker.FindContactByContent(temp);
+            this.ShowContactsList(contactsList);
+        }
+
+        internal void SaveContacts()
+        {
+            Console.WriteLine("Enter the directory and name of xml-file on the end :");
+
+            contactWorker.SaveContactsTo(Console.ReadLine());
         }
     }
 }

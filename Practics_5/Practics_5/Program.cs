@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,13 +13,8 @@ namespace Practics_5
         static void Main(string[] args)
         {
             bool end = false;
-            ContactWorker cw;
-            UserInterface ui;
-
-            Console.WriteLine("Enter the directory to your contact file");
-            
-            cw = new ContactWorker(Console.ReadLine());
-            ui = new UserInterface(cw);
+            ContactWorker cw = new ContactWorker();
+            UserInterface ui = new UserInterface(cw);
                 
             while (!end)
             {
@@ -40,14 +36,22 @@ namespace Practics_5
                         break;
 
                     case "3":
-                        ui.DeleteContact();
+                        while (!ui.DeleteContact()) ;
                         break;
 
                     case "4":
-                        ui.SearchContact();
+                        while(!ui.FindContactByTagName()) ;
                         break;
 
                     case "5":
+                        ui.FindContactByContent();
+                        break;
+
+                    case "6":
+                        ui.SaveContacts();
+                        break;
+
+                    case "7":
                         end = true;
                         break;
 
